@@ -1,0 +1,26 @@
+'pt-BR':
+  links:
+    edit: Editar
+    show: Mostrar
+    delete: Remover
+    back: Voltar
+    home: Voltar para o Início
+    new: Novo
+    save: Salvar
+    showall: Mostrar Todos os Filmes
+    mymovies: Meus Filmes
+    movies: Filmes
+    genders: Gêneros
+    newgender: Adicionar Novo Gênero
+    newmovie: Adicionar Filme
+    editmovie: Editar Filme
+  app:
+    name: HOLYFLIX
+    holyflix: HOLYFLIX é um app para gerenciar seus filmes prediletos!
+    desc: Com uma interface fácil e intuitiva, adicione, remova ou altere os dados dos seus filmes!
+    start: Para começar, clique no botão abaixo
+    access: Acessar
+  filme:
+    save: Filme adicionado        
+    update: Filme atualizado
+    delete: Filme removido

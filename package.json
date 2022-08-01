@@ -1,0 +1,9 @@
+{
+  "name": "holyflix",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "4.1.3",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1"
+  }
+}

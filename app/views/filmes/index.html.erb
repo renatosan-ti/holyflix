@@ -1,0 +1,36 @@
+<h1 class="display-4"><%= t('links.movies')%></h1>
+<%= link_to t('links.newmovie'), new_filme_path, class:"btn btn-success text-light btn-sm" %>
+<%= link_to 'Imprimir Catálogo', filmes_path(format: :pdf), class:"btn btn-primary text-light btn-sm", target: :_blank  %>
+
+<br /><br />
+
+<%= form_tag(filmes_path, method: :get, remote: true) do %>  
+  <%= text_field_tag :busca, params[:busca], class: "form-control form-control-sm form-control-borderless", placeholder:"Título do filme" %>     
+<% end %>
+<br>
+
+<div id="filmes-table">
+<p id="notice"><%= flash_messages %></p>
+  <div class="row jumbotron jumbotron-fluid justify-content-center">    
+    <% @filmes.each do |filme| %>
+      <div class="mx-auto">
+        <%= link_to filme, class:"card-link", remote: false do %>
+          <div class="card" style="width: 18rem;">          
+            <%= image_tag filme.capa, class: "card-img-top" if filme.capa.attached? %>              
+            <div class="card-body">
+              <h5 class="card-title"><%= filme.titulo %></h5>
+              <p class="text-muted"><%= filme.ano %> · <%= filme.idade %> · <%= devolve_genero(filme.filme_genero) %></p>
+              <p class="card-text text-truncate" style="max-width: 20rem;"><%= filme.sinopse %></p>                    
+            </div>
+          </div>          
+        <% end %>
+      </div>
+    <% end %>    
+  </div>    
+    <div class="pagination justify-content-center">
+      <%= paginate @filmes %>
+    </div>  
+</div>
+
+<div id="resultados-busca">
+</div>

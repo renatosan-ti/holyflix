@@ -1,0 +1,22 @@
+'pt-BR':
+  activerecord:
+    models:
+      filme:
+        one: Filme
+        other: Filmes
+      genero:
+        one: Gênero
+        other: Gêneros     
+    attributes:
+      filme:
+        id: Código
+        titulo: Título
+        capa: Capa
+        genero: Gênero
+        ano: Lançamento        
+        idade: Classificação
+        elenco: Elenco
+        sinopse: Sinopse
+      genero:
+        id: Código
+        tipo: Gênero

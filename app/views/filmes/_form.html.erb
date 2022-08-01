@@ -1,0 +1,66 @@
+<%= form_with(model: filme, local: true) do |form| %>
+  <% if filme.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h2 class="alert-heading"><em>"Houston, we have a problem"</em></h2>
+      <p class="mb-0"><%= pluralize(filme.errors.count, "inconsistência", plural: "inconsistências") %> impediu que o filme fosse adicionado:</p>      
+      <hr>
+      <p class="mb-0">Abaixo, uma lista dos campos destacados que precisam ser alterados/preenchidos</p>
+      <ul>
+        <% filme.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <form>
+    <div class="form-group">        
+      <%= form.label :capa %>   
+      <div>
+        <%= image_tag url_for(@filme.capa), class: "img-thumbnail", width: 200 if @filme.capa.attached? %>    
+        <br>
+        <%= form.file_field :capa %>
+      </div>
+    </div>
+    <div class="form-row">      
+      <div class="form-group col-7">
+        <%= form.label :titulo %>
+        <%= form.text_field :titulo, class:"form-control", placeholder:"Ex: Star Wars" %>
+      </div>
+      <div class="form-group col">
+        <%= form.label :ano %>
+        <%= form.text_field :ano, class:"small form-control" %>
+      </div>      
+      <div class="form-group col">
+        <%= form.label :genero %> <small>(<%= link_to t('links.new'), new_genero_path, class:"btn-link", data: { remote: true } %>)</small>
+        <div>
+          <%= form.select("filme_genero", @opcoes_genero, { include_blank: false, include_hidden: false }, class:"form-control selectpicker form-control-sm", multiple: true) %>                  
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-2">
+        <%= form.label :idade %>
+        <%= form.text_field :idade, class:"form-control", placeholder:"Ex: Livre, 12, 16, 18" %>
+      </div>
+      <div class="form-group col">
+        <%= form.label :elenco %>
+        <%= form.text_field :elenco, class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col">
+        <%= form.label :sinopse %>
+        <%= form.text_area :sinopse, class:"form-control", rows:3 %>
+      </div>    
+    </div>  
+    <div class="actions">
+      <%= form.submit class:"btn btn-success text-light btn-sm" %>
+        <%= link_to t('links.back'), filmes_path, class:"btn btn-primary text-light btn-sm" %>
+    </div>
+  </form>
+
+
+<% end %>

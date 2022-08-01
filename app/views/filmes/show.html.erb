@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+<form class="jumbotron">
+  <div class="form-group">
+    <h1 class="display-4"><%= label_tag nil, @filme.titulo %></h1>    
+  </div>   
+
+  <div class="row">
+    <div class="col-md-auto">
+      <div class="form-group">    
+        <strong><%= label_tag nil, @filme.class.human_attribute_name(:capa) %></strong>
+        <br>    
+        <%= image_tag url_for(@filme.capa), class: "img-thumbnail", width: 300 if @filme.capa.attached? %>                
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">    
+        <strong><%= label_tag nil, @filme.class.human_attribute_name(:sinopse) %></strong>
+        <br>
+        <blockquote class="blockquote text-justify"><em><%= @filme.sinopse %></em></blockquote>
+
+        <div class="col">
+          <div class="row">
+            <div class="form-group">    
+              <strong><%= label_tag nil, @filme.class.human_attribute_name(:ano) %></strong>
+              <%= text_field_tag nil, @filme.ano, class:"form-control-plaintext", disabled: true %>
+            </div>
+
+            <div class="form-group">    
+              <strong><%= label_tag nil, @filme.class.human_attribute_name(:genero) %></strong>
+              <% if @filme.filme_genero.nil? %>
+                <%= text_field_tag nil, "Sem gênero cadastrado", class:"form-control-plaintext font-italic", disabled: true %>
+              <% else %>
+                <%= text_field_tag nil, Genero.order(:nome).find(@filme.filme_genero).pluck(:nome).join(', '), class:"form-control-plaintext", disabled: true %>
+              <% end %>
+            </div>
+
+            <div class="form-group">    
+              <strong><%= label_tag nil, @filme.class.human_attribute_name(:idade) %></strong>
+              <%= text_field_tag nil, @filme.idade, class:"form-control-plaintext", disabled: true %>
+            </div>
+            <div class="col">
+              <div class="form-group">    
+                <strong><%= label_tag nil, @filme.class.human_attribute_name(:elenco) %></strong>
+                <%= text_field_tag nil, @filme.elenco, class:"form-control-plaintext", disabled: true %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to t('links.edit'), edit_filme_path(@filme), class:"btn btn-success text-light btn-sm" %>
+  <%= link_to t('links.delete'), @filme, method: :delete, data: { confirm: "Deseja remover o filme #{@filme.titulo}?" }, class:"btn btn-danger text-light btn-sm" %>
+  <%= link_to t('links.back'), filmes_path, class:"btn btn-primary text-light btn-sm" %>
+</form>
