@@ -1,9 +1,10 @@
 # HOLYFLIX
 
 ### Mudanças desde a versão 1
-- Os filmes da tela inicial agora são carregados diretamente do banco de dados
-- Adicionado título do filme no carrossel
-- Adicionada paginação
+- As imagens dos filmes, na tela inicial, são carregados diretamente do banco de dados
+- Os filmes da tela inicial exibem seus títulos
+- Agora, os filmes são mostrados em formato de cartões, ao invés da lista
+- Com a paginação, apenas 4 filmes são exibidos por vez
 
 ### TODO
 - [x] Imprimir catálogo em PDF

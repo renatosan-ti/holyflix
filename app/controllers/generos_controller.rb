@@ -25,22 +25,20 @@ class GenerosController < ApplicationController
   end
   
   # POST /generos or /generos.json
-  def create
-    
-      @genero = Genero.new(genero_params)
-      
+  def create    
+      @genero = Genero.new(genero_params)      
 
       respond_to do |format|
         if @genero.save
-          format.html #{ redirect_to genero_url(@genero), notice: "Genero was successfully created." }
-          format.json #{ render :show, status: :created, location: @genero }
+          format.html
+          format.json
           format.js { 
             @opcoes_genero = Genero.all.order(:nome).pluck(:nome, :id) 
-            render inline: "location.reload();" } # { render 'modal', remote: true }
+            render inline: "location.reload();" } 
         else
-          format.html #{ render :new, status: :unprocessable_entity }
-          format.json #{ render json: @genero.errors, status: :unprocessable_entity }
-          format.js # { render 'modal', remote: true }
+          format.html
+          format.json
+          format.js
         end
       end
     

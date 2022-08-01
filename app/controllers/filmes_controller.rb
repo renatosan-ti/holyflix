@@ -17,8 +17,7 @@ class FilmesController < ApplicationController
     end
     respond_to do |format|    
       format.html { @filmes = Filme.order(:titulo).page params[:page] }
-      format.pdf { @filmes = Filme.order(:titulo) }
-      #format.js { render 'index', layout: false }      
+      format.pdf { @filmes = Filme.order(:titulo) }      
     end
   end
 
@@ -29,11 +28,6 @@ class FilmesController < ApplicationController
   # GET /filmes/new
   def new
     @filme = Filme.new
-
-    #respond_to do |format|
-    #  format.html
-    #  format.js
-    #end
   end
 
   # GET /filmes/1/edit
