@@ -30,7 +30,7 @@
               <% if @filme.filme_genero.nil? %>
                 <%= text_field_tag nil, "Sem gênero cadastrado", class:"form-control-plaintext font-italic", disabled: true %>
               <% else %>
-                <%= text_field_tag nil, Genero.order(:nome).find(@filme.filme_genero).pluck(:nome).join(', '), class:"form-control-plaintext", disabled: true %>
+                <%= text_field_tag nil, devolve_genero(@filme.filme_genero), class:"form-control-plaintext", disabled: true %>
               <% end %>
             </div>
 

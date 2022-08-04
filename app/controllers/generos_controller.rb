@@ -1,6 +1,6 @@
 class GenerosController < ApplicationController
   before_action :set_genero, only: %i[ show edit update destroy ]
-    
+  
   # GET /generos or /generos.json
   def index
     @generos = Genero.all
@@ -32,8 +32,7 @@ class GenerosController < ApplicationController
         if @genero.save
           format.html
           format.json
-          format.js { 
-            @opcoes_genero = Genero.all.order(:nome).pluck(:nome, :id) 
+          format.js { @opcoes_genero = Genero.all.order(:nome).pluck(:nome, :id)
             render inline: "location.reload();" } 
         else
           format.html
