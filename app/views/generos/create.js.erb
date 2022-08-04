@@ -1,5 +1,31 @@
 <% if @genero.errors.blank? %>  
   $('#novoGenero-modal').modal('hide');  
+
+  function updateSelectGeneros() {
+    const selectWrapper = document.getElementById('filme_genero');
+
+    fetch('/generos.json')
+    .then(res => res.json())
+    .then(jsonData => {
+      if (!jsonData) {return}
+      selectWrapper.innerHTML = '';
+
+      const fragment = document.createDocumentFragment()
+
+      jsonData.forEach(genero => {
+        let {id, nome } = genero;
+
+        let generoOption = document.createElement('option');
+        generoOption.value = genero.id;
+        generoOption.innerText = genero.nome;
+        fragment.appendChild(generoOption);
+      })
+
+      selectWrapper.append(fragment)
+    })
+  }
+
+  updateSelectGeneros()
 <% else %>
   alert('Houston...');
 <% end %>

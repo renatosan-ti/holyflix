@@ -32,8 +32,8 @@ class GenerosController < ApplicationController
         if @genero.save
           format.html
           format.json
-          format.js { @opcoes_genero = Genero.all.order(:nome).pluck(:nome, :id)
-            render inline: "location.reload();" } 
+          format.js #{ @opcoes_genero = Genero.all.order(:nome).pluck(:nome, :id)
+           # render inline: "location.reload();" } 
         else
           format.html
           format.json
