@@ -19,7 +19,7 @@
       <div>
         <%= image_tag url_for(@filme.capa), class: "img-thumbnail", width: 200 if @filme.capa.attached? %>    
         <br>
-        <%= form.file_field :capa %>
+        <%= form.file_field :capa, class: "form-control-file" %>
       </div>
     </div>
     <div class="form-row">      
@@ -33,8 +33,8 @@
       </div>      
       <div class="form-group col">
         <%= form.label :genero %> <small>(<%= link_to t('links.new'), new_genero_path, class:"btn-link", data: { remote: true } %>)</small>
-        <div>
-          <%= select_tag(:filme_genero, options_for_select(@opcoes_genero), class:"form-control selectpicker form-control-sm", multiple: true) %>
+        <div>          
+          <%= form.select("filme_genero", @opcoes_genero, { include_blank: false, include_hidden: false }, class:"form-control selectpicker form-control-sm", multiple: true) %>
         </div>
       </div>
     </div>

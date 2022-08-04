@@ -2,6 +2,18 @@
 <%= link_to t('links.newmovie'), new_filme_path, class:"btn btn-success text-light btn-sm" %>
 <%= link_to 'Imprimir Catálogo', filmes_path(format: :pdf), class:"btn btn-primary text-light btn-sm", target: :_blank  %>
 
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+  <label class="form-check-label" for="inlineRadio1">1</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+  <label class="form-check-label" for="inlineRadio2">2</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
+  <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+</div>
 <br /><br />
 
 <%= form_tag(filmes_path, method: :get, remote: true) do %>  
