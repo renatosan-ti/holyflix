@@ -1,29 +1,29 @@
-<% if @genero.errors.blank? %>  
-  const selectWrapper = document.getElementById('filme_genero');
+<% if @genero.errors.blank? %>   
+  $('#novoGenero-modal').modal('hide');       
+  $(document).on('hidden.bs.modal','#novoGenero-modal', function () {
+    const selectWrapper = document.getElementById('filme_filme_genero');
 
-  function populateHtml(jsonData) {
-    if (!jsonData) {return}
-    selectWrapper.innerHTML = '';
+    fetch('/generos.json')
+    .then(res => res.json())
+    .then(jsonData => {
+      if (!jsonData) {return}
+      selectWrapper.innerHTML = '';
 
-    const fragment = document.createDocumentFragment()
+      const fragment = document.createDocumentFragment()
 
-    jsonData.forEach(genero => {
-      let {id, nome } = genero;
+      jsonData.forEach(genero => {
+        let {id, nome} = genero;
 
-      let generoOption = document.createElement('option');
-      generoOption.value = genero.id;
-      generoOption.innerText = genero.nome;
-      fragment.appendChild(generoOption);
+        let generoOption = document.createElement('option');
+        generoOption.value = genero.id;
+        generoOption.innerText = genero.nome;
+        fragment.appendChild(generoOption);
+      })
+
+      selectWrapper.append(fragment)      
     })
-
-    selectWrapper.append(fragment)
-  }
-
-  fetch('/generos.json')
-  .then(res => res.json())
-  .then(data => populateHtml(data))
-
-  $('#novoGenero-modal').modal('hide');   
+  });
+  
 <% else %>
   alert("error: <%= @genero.errors.full_messages.first %>");
 <% end %>
