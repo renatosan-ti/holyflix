@@ -7,21 +7,16 @@ class GenerosController < ApplicationController
   end
 
   # GET /generos/1 or /generos/1.json
-  def show        
+  def show            
   end
 
   # GET /generos/new
   def new
-    @genero = Genero.new
-
-    respond_to do |format|    
-      format.html      
-      format.js
-    end
+    @genero = Genero.new    
   end
   
   # GET /generos/1/edit
-  def edit
+  def edit    
   end
   
   # POST /generos or /generos.json
@@ -32,8 +27,7 @@ class GenerosController < ApplicationController
         if @genero.save
           format.html
           format.json
-          format.js #{ @opcoes_genero = Genero.all.order(:nome).pluck(:nome, :id)
-           #render inline: "location.reload();" } 
+          format.js
         else
           format.html
           format.json

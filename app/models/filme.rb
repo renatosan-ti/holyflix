@@ -12,7 +12,7 @@ class Filme < ApplicationRecord
                 @filmes = nil
             end
         else
-            @filmes = Filme.all
+            @filmes = Filme.all            
         end
     end
 end

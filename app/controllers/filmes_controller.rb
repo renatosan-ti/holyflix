@@ -15,6 +15,7 @@ class FilmesController < ApplicationController
       @filmes = Filme.all
       flash[:notice] = "Nenhum filme foi cadastrado" if @filmes.blank?
     end
+    
     respond_to do |format|    
       format.html { @filmes = Filme.order(:titulo).page params[:page] }
       format.pdf { @filmes = Filme.order(:titulo) }      
@@ -22,7 +23,7 @@ class FilmesController < ApplicationController
   end
 
   # GET /filmes/1 or /filmes/1.json
-  def show    
+  def show        
   end
 
   # GET /filmes/new
@@ -31,7 +32,7 @@ class FilmesController < ApplicationController
   end
 
   # GET /filmes/1/edit
-  def edit
+  def edit    
   end
 
   # POST /filmes or /filmes.json

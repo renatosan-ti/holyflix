@@ -9,19 +9,17 @@
     <% @resultados.each do |filme| %>
       <div class="mx-auto">
         <%= link_to filme, class:"card-link" do %>
-          <div class="card" style="width: 18rem;">          
+          <div class="card" style="width: 10rem;">          
             <%= image_tag filme.capa, class: "card-img-top" if filme.capa.attached? %>              
             <div class="card-body">
-              <h5 class="card-title"><%= filme.titulo %></h5>
-              <p class="text-muted"><%= filme.ano %> · <%= filme.idade %> · <%= filme.genero %></p>
-              <p class="card-text text-truncate" style="max-width: 20rem;"><%= filme.sinopse %></p>                    
+              <h5 class="card-title"><%= filme.titulo %></h5>              
             </div>
           </div>
           <br>
         <% end %>
       </div>
     <% end %>    
-  </div> 
+  </div>  
 <% else %>  
   <script>
     $(document).ready(function(){ $("#modalFilmeNaoEncontrado").modal('show'); });
