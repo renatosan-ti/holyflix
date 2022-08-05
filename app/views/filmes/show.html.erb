@@ -6,10 +6,8 @@
 
   <div class="row">
     <div class="col-md-auto">
-      <div class="form-group">    
-        <strong><%= label_tag nil, @filme.class.human_attribute_name(:capa) %></strong>
-        <br>    
-        <%= image_tag url_for(@filme.capa), class: "img-thumbnail", width: 300 if @filme.capa.attached? %>                
+      <div class="form-group">            
+        <%= image_tag url_for(@filme.capa), class: "img-thumbnail", width: 250 if @filme.capa.attached? %>                
       </div>
     </div>
     <div class="col">
