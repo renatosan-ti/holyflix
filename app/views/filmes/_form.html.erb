@@ -34,7 +34,7 @@
       <div class="form-group col">
         <%= form.label :genero %> <small>(<%= link_to t('links.new'), new_genero_path, class:"btn-link", data: { remote: true } %>)</small>
         <div>          
-          <%= form.select("filme_genero", @opcoes_genero, { include_blank: false, include_hidden: false }, class:"form-control selectpicker form-control-sm", multiple: true) %>
+          <%= form.select("filme_genero", @opcoes_genero, { include_blank: false, include_hidden: false }, class:"form-control selectpicker form-control-sm", multiple: true, required: true) %>          
         </div>
       </div>
     </div>
