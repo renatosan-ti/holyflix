@@ -25,16 +25,16 @@
     <div class="form-row">      
       <div class="form-group col-7">
         <%= form.label :titulo %>
-        <%= form.text_field :titulo, class:"form-control", placeholder:"Ex: Star Wars" %>
+        <%= form.text_field :titulo, class:"form-control", placeholder:"Ex: Star Wars", required: true %>        
       </div>
       <div class="form-group col">
         <%= form.label :ano %>
-        <%= form.text_field :ano, class:"small form-control" %>
+        <%= form.text_field :ano, class:"small form-control", required: true %>
       </div>      
       <div class="form-group col">
         <%= form.label :genero %> <small>(<%= link_to t('links.new'), new_genero_path, class:"btn-link", data: { remote: true } %>)</small>
         <div>          
-          <%= form.select("filme_genero", @opcoes_genero, { include_blank: false, include_hidden: false }, class:"form-control selectpicker form-control-sm", multiple: true, required: true) %>          
+          <%= form.select("filme_genero", @opcoes_genero, { include_blank: false, include_hidden: false }, class:"form-control selectpicker form-control-sm", multiple: true, required: true) %>                    
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
     <div class="form-row">
       <div class="form-group col-2">
         <%= form.label :idade %>
-        <%= form.text_field :idade, class:"form-control", placeholder:"Ex: Livre, 12, 16, 18" %>
+        <%= form.text_field :idade, class:"form-control", placeholder:"Ex: Livre, 12, 16, 18", required: true %>
       </div>
       <div class="form-group col">
         <%= form.label :elenco %>
