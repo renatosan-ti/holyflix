@@ -24,15 +24,16 @@
     </div>
     <div class="form-row">      
       <div class="form-group col-7">
-        <%= form.label :titulo %>
+        <%= form.label :titulo %> <font size="3" color="red">*</font>
         <%= form.text_field :titulo, class:"form-control", placeholder:"Ex: Star Wars", required: true %>        
+        
       </div>
       <div class="form-group col">
-        <%= form.label :ano %>
+        <%= form.label :ano %> <font size="3" color="red">*</font>
         <%= form.text_field :ano, class:"small form-control", required: true %>
       </div>      
       <div class="form-group col">
-        <%= form.label :genero %> <small>(<%= link_to t('links.new'), new_genero_path, class:"btn-link", data: { remote: true } %>)</small>
+        <%= form.label :genero %> <font size="3" color="red">*</font> <small>(<%= link_to t('links.new'), new_genero_path, class:"btn-link", data: { remote: true } %>)</small>
         <div>          
           <%= form.select("filme_genero", @opcoes_genero, { include_blank: false, include_hidden: false }, class:"form-control selectpicker form-control-sm", multiple: true, required: true) %>                    
         </div>
@@ -41,7 +42,7 @@
 
     <div class="form-row">
       <div class="form-group col-2">
-        <%= form.label :idade %>
+        <%= form.label :idade %> <font size="3" color="red">*</font>
         <%= form.text_field :idade, class:"form-control", placeholder:"Ex: Livre, 12, 16, 18", required: true %>
       </div>
       <div class="form-group col">
@@ -60,5 +61,6 @@
       <%= form.submit class:"btn btn-success text-light btn-sm" %>
         <%= link_to t('links.back'), filmes_path, class:"btn btn-primary text-light btn-sm" %>
     </div>
+    <font size="3" color="red">*</font> <i>Preenchimento obrigatório</i>
   </form>
 <% end %>

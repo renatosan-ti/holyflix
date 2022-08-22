@@ -1,30 +1,30 @@
 <div class="jumbotron">
-    <div class="row">
-        <div class="col-md-auto">
-            <h1 class="display-1 text-danger"><%= t('app.name') %></h1>
-            <p class="lead"><%= t('app.holyflix')%></p>
-            <p class="lead"><%= t('app.desc') %></p>  
-            <hr class="my-4">            
-            <%= link_to t('app.access'), filmes_path, class:"btn btn-primary text-light", role:"button" %>  
-        </div>
-        <div class="col">
-            <% @capas = Filme.all.shuffle %>            
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner text-center">
-                    <div class="carousel-item active">
-                        <% @capas.first(1).each do |filme| %>                          
-                          <%= image_tag filme.capa, class: "img-thumbnail d-block mx-auto", width: 300 if filme.capa.attached? %>
-                          <h3><small class="text-muted"><em><%= filme.titulo %></em></small></h3>                          
-                        <% end %>
-                    </div>
-                    <% @capas.drop(1).each do |filme| %>
-                      <div class="carousel-item">
-                        <%= image_tag filme.capa, class: "img-thumbnail d-block mx-auto", width: 300 if filme.capa.attached? %>
-                        <h3><small class="text-muted"><em><%= filme.titulo %></em></small></h3>
-                      </div>
-                    <% end %>
-                </div>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-md-auto">
+      <h1 class="display-1 text-danger"><%= t('app.name') %></h1>
+      <p class="lead"><%= t('app.holyflix')%></p>
+      <p class="lead"><%= t('app.desc') %></p>  
+      <hr class="my-4">            
+      <%= link_to t('app.access'), filmes_path, class:"btn btn-primary text-light", role:"button" %>  
     </div>
+    <div class="col">
+      <% @capas = Filme.all.shuffle %>            
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner text-center">
+          <div class="carousel-item active">
+            <% @capas.first(1).each do |filme| %>                          
+            <%= image_tag filme.capa, class: "img-thumbnail d-block mx-auto", width: 300 if filme.capa.attached? %>
+              <h3><small class="text-muted"><em><%= filme.titulo %></em></small></h3>                          
+            <% end %>
+          </div>
+          <% @capas.drop(1).each do |filme| %>
+            <div class="carousel-item">
+              <%= image_tag filme.capa, class: "img-thumbnail d-block mx-auto", width: 300 if filme.capa.attached? %>
+              <h3><small class="text-muted"><em><%= filme.titulo %></em></small></h3>
+            </div> 
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
